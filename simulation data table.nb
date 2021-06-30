@@ -1,0 +1,4205 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    183797,       4197]
+NotebookOptionsPosition[    183136,       4179]
+NotebookOutlinePosition[    183547,       4196]
+CellTagsIndexPosition[    183504,       4193]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "\:6e05\:9664\:5b9a\:4e49", "\:ff0c", "\:8bbe\:7f6e\:76ee\:5f55", "\:ff0c",
+     "\:7ec8\:6b62\:5185\:6838", "\:ff0c", "\:542f\:52a8\:5185\:6838"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"SetDirectory", "[", 
+     RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"CloseKernels", "[", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"LaunchKernels", "[", "12", "]"}], ";"}]}]}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"da8de27f-05c9-40d8-97b0-4bd89e6bb6b0"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"q", "=", "6"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"abc", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"resultFile", "=", 
+       RowBox[{"FileNames", "[", 
+        RowBox[{
+         RowBox[{"__", "~~", "\"\<.csv\>\""}], ",", 
+         RowBox[{"\"\<additive model/round=\>\"", "<>", 
+          RowBox[{"IntegerString", "[", 
+           RowBox[{"round", ",", "10", ",", "2"}], "]"}], "<>", 
+          "\"\</result for comparing\>\""}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"selected", "=", 
+       RowBox[{"ToExpression", "[", 
+        RowBox[{"Import", "[", 
+         RowBox[{"\"\<additive model/round=\>\"", "<>", 
+          RowBox[{"IntegerString", "[", 
+           RowBox[{"round", ",", "10", ",", "2"}], "]"}], "<>", 
+          "\"\</data/selected.txt\>\""}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{"1", ",", "x_", ",", "i_", ",", "j_"}], "]"}], ":=", 
+       RowBox[{"Which", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"i", "\[Equal]", "1"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"3", " ", 
+            RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            FractionBox["6", 
+             RowBox[{"1", "+", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "2"}], " ", "x"}]]}]], "-", "3"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"3", " ", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{"-", 
+               FractionBox[
+                SuperscriptBox["x", "2"], "4"]}]]}], "-", 
+            SqrtBox["6"]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", "True", ",", "0"}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"i", "\[Equal]", "2"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            SuperscriptBox["x", "2"], "-", "1"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            FractionBox["6", 
+             RowBox[{"1", "+", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "2"}], " ", "x"}]]}]], "-", "3"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", "True", ",", "0"}], 
+          "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"i", "\[Equal]", "3"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            SuperscriptBox["x", "2"], "-", "1"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"3", " ", 
+            RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"-", "2"}], " ", "x"}], ",", "True", ",", "0"}], "]"}], 
+         ",", "\[IndentingNewLine]", "True", ",", "0"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{"2", ",", "x_", ",", "i_", ",", "j_"}], "]"}], ":=", 
+       RowBox[{"Which", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"i", "\[Equal]", "1"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            SuperscriptBox["x", "2"], "-", "1"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"3", " ", 
+            RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            FractionBox["6", 
+             RowBox[{"1", "+", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "2"}], " ", "x"}]]}]], "-", "3"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"3", " ", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{"-", 
+               FractionBox[
+                SuperscriptBox["x", "2"], "4"]}]]}], "-", 
+            SqrtBox["6"]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", "True", ",", "0"}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"i", "\[Equal]", "2"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["x", "2"], "-", "1"}], ")"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"6", " ", 
+            RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"3", " ", 
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{"-", 
+                 FractionBox[
+                  SuperscriptBox["x", "2"], "4"]}]]}], "-", 
+              SqrtBox["6"]}], ")"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "2", " ", "x"}], ",", "True", ",", "0"}], "]"}], 
+         ",", "\[IndentingNewLine]", 
+         RowBox[{"i", "\[Equal]", "3"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"-", "3"}], " ", 
+            RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              FractionBox["6", 
+               RowBox[{"1", "+", 
+                SuperscriptBox["\[ExponentialE]", 
+                 RowBox[{
+                  RowBox[{"-", "2"}], " ", "x"}]]}]], "-", "3"}], ")"}]}], 
+           ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"-", "2"}], " ", "x"}], ",", "True", ",", "0"}], "]"}], 
+         ",", "\[IndentingNewLine]", "True", ",", "0"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{"3", ",", "x_", ",", "i_", ",", "j_"}], "]"}], ":=", 
+       RowBox[{"Which", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"i", "\[Equal]", "1"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            SuperscriptBox["x", "2"], "-", "1"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"3", " ", 
+            RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            FractionBox["6", 
+             RowBox[{"1", "+", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "2"}], " ", "x"}]]}]], "-", "3"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"3", " ", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{"-", 
+               FractionBox[
+                SuperscriptBox["x", "2"], "4"]}]]}], "-", 
+            SqrtBox["6"]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", "True", ",", "0"}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"i", "\[Equal]", "2"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            SuperscriptBox["x", "2"], "-", "1"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"3", " ", 
+            RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            FractionBox["6", 
+             RowBox[{"1", "+", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "2"}], " ", "x"}]]}]], "-", "3"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"3", " ", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{"-", 
+               FractionBox[
+                SuperscriptBox["x", "2"], "4"]}]]}], "-", 
+            SqrtBox["6"]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", "True", ",", "0"}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"i", "\[Equal]", "3"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            SuperscriptBox["x", "2"], "-", "1"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"3", " ", 
+            RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            FractionBox["6", 
+             RowBox[{"1", "+", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "2"}], " ", "x"}]]}]], "-", "3"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"3", " ", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{"-", 
+               FractionBox[
+                SuperscriptBox["x", "2"], "4"]}]]}], "-", 
+            SqrtBox["6"]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", "True", ",", "0"}], "]"}], ",", 
+         "\[IndentingNewLine]", "True", ",", "0"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{"4", ",", "x_", ",", "i_", ",", "j_"}], "]"}], ":=", 
+       RowBox[{"Which", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"i", "\[Equal]", "1"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "7", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "8", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "9", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"3", " ", "x"}], ",", "True", ",", "0"}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"i", "\[Equal]", "2"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "7", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"4", " ", "x"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "8", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "9", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"-", "3"}], " ", "x"}], ",", "True", ",", "0"}], "]"}], 
+         ",", "\[IndentingNewLine]", 
+         RowBox[{"i", "\[Equal]", "3"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"-", "2"}], " ", "x"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "7", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "8", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "9", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"6", " ", "x"}], ",", "True", ",", "0"}], "]"}], ",", 
+         "\[IndentingNewLine]", "True", ",", "0"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\[Phi]", "[", "x_", "]"}], ":=", 
+       TagBox[GridBox[{
+          {"\[Piecewise]", GridBox[{
+             {
+              RowBox[{"Flatten", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "2"}], " ", "x"}], "+", 
+                  FractionBox["1", "6"]}], ",", 
+                 FractionBox["4", "6"], ",", 
+                 RowBox[{
+                  RowBox[{"2", " ", "x"}], "+", 
+                  FractionBox["1", "6"]}], ",", 
+                 RowBox[{"ConstantArray", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"q", "-", "3"}]}], "]"}]}], "}"}], "]"}], 
+              RowBox[{"x", "\[LessEqual]", "0"}]},
+             {
+              RowBox[{
+               RowBox[{
+                RowBox[{"BSplineBasis", "[", 
+                 RowBox[{"3", ",", 
+                  RowBox[{"x", "-", 
+                   FractionBox["#", "4"]}]}], "]"}], "&"}], "/@", 
+               RowBox[{"Range", "[", 
+                RowBox[{
+                 RowBox[{"-", "3"}], ",", 
+                 RowBox[{"q", "-", "4"}]}], "]"}]}], 
+              RowBox[{"0", "<", "x", "\[LessEqual]", 
+               FractionBox[
+                RowBox[{"q", "-", "3"}], "4"]}]},
+             {
+              RowBox[{"Flatten", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"ConstantArray", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"q", "-", "3"}]}], "]"}], ",", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "2"}], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"x", "-", 
+                    FractionBox[
+                    RowBox[{"q", "-", "3"}], "4"]}], ")"}]}], "+", 
+                  FractionBox["1", "6"]}], ",", 
+                 FractionBox["4", "6"], ",", 
+                 RowBox[{
+                  RowBox[{"2", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"x", "-", 
+                    FractionBox[
+                    RowBox[{"q", "-", "3"}], "4"]}], ")"}]}], "+", 
+                  FractionBox["1", "6"]}]}], "}"}], "]"}], 
+              RowBox[{
+               FractionBox[
+                RowBox[{"q", "-", "3"}], "4"], "<", "x"}]}
+            },
+            AllowedDimensions->{2, Automatic},
+            Editable->True,
+            
+            GridBoxAlignment->{
+             "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+              "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
+              "Rows" -> {{1.}}, "RowsIndexed" -> {}},
+            GridBoxSpacings->{"Columns" -> {
+                Offset[0.27999999999999997`], {
+                 Offset[0.84]}, 
+                Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+                Offset[0.2], {
+                 Offset[0.4]}, 
+                Offset[0.2]}, "RowsIndexed" -> {}},
+            Selectable->True]}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{1.}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.35]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.4]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}],
+        "Piecewise",
+        DeleteWithContents->True,
+        Editable->False,
+        SelectWithContents->True,
+        Selectable->False,
+        StripWrapperBoxes->True]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tempTable", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"yType", "=", 
+           RowBox[{"ToExpression", "[", 
+            RowBox[{
+             RowBox[{"StringCases", "[", 
+              RowBox[{
+               RowBox[{
+               "resultFile", "\[LeftDoubleBracket]", "l", 
+                "\[RightDoubleBracket]"}], ",", 
+               RowBox[{
+                RowBox[{"\"\<yType=\>\"", "~~", "a_"}], "\[RuleDelayed]", 
+                "a"}]}], "]"}], "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"errorType", "=", 
+           RowBox[{"ToExpression", "[", 
+            RowBox[{
+             RowBox[{"StringCases", "[", 
+              RowBox[{
+               RowBox[{
+               "resultFile", "\[LeftDoubleBracket]", "l", 
+                "\[RightDoubleBracket]"}], ",", 
+               RowBox[{
+                RowBox[{"\"\<errorType=\>\"", "~~", "a_"}], "\[RuleDelayed]", 
+                "a"}]}], "]"}], "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"methodType", "=", 
+           RowBox[{"ToExpression", "[", 
+            RowBox[{
+             RowBox[{"StringCases", "[", 
+              RowBox[{
+               RowBox[{
+               "resultFile", "\[LeftDoubleBracket]", "l", 
+                "\[RightDoubleBracket]"}], ",", 
+               RowBox[{
+                RowBox[{"\"\<methodType=\>\"", "~~", "a_"}], "\[RuleDelayed]",
+                 "a"}]}], "]"}], "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"lossType", "=", 
+           RowBox[{"ToExpression", "[", 
+            RowBox[{
+             RowBox[{"StringCases", "[", 
+              RowBox[{
+               RowBox[{
+               "resultFile", "\[LeftDoubleBracket]", "l", 
+                "\[RightDoubleBracket]"}], ",", 
+               RowBox[{
+                RowBox[{"\"\<lossType=\>\"", "~~", "a_"}], "\[RuleDelayed]", 
+                "a"}]}], "]"}], "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"training", "=", 
+           RowBox[{"Import", "[", 
+            RowBox[{"\"\<additive model/round=\>\"", "<>", 
+             RowBox[{"IntegerString", "[", 
+              RowBox[{"round", ",", "10", ",", "2"}], "]"}], "<>", 
+             "\"\</data/training,rho=0.\>\"", "<>", 
+             RowBox[{
+              RowBox[{"StringCases", "[", 
+               RowBox[{
+                RowBox[{
+                "resultFile", "\[LeftDoubleBracket]", "l", 
+                 "\[RightDoubleBracket]"}], ",", 
+                RowBox[{
+                 RowBox[{"\"\<rho=0.\>\"", "~~", "a_"}], "\[RuleDelayed]", 
+                 "a"}]}], "]"}], "\[LeftDoubleBracket]", "1", 
+              "\[RightDoubleBracket]"}], "<>", "\"\<.csv\>\""}], "]"}]}], ";",
+           "\[IndentingNewLine]", 
+          RowBox[{"test", "=", 
+           RowBox[{"Import", "[", 
+            RowBox[{"\"\<additive model/round=\>\"", "<>", 
+             RowBox[{"IntegerString", "[", 
+              RowBox[{"round", ",", "10", ",", "2"}], "]"}], "<>", 
+             "\"\</data/test,rho=0.\>\"", "<>", 
+             RowBox[{
+              RowBox[{"StringCases", "[", 
+               RowBox[{
+                RowBox[{
+                "resultFile", "\[LeftDoubleBracket]", "l", 
+                 "\[RightDoubleBracket]"}], ",", 
+                RowBox[{
+                 RowBox[{"\"\<rho=0.\>\"", "~~", "a_"}], "\[RuleDelayed]", 
+                 "a"}]}], "]"}], "\[LeftDoubleBracket]", "1", 
+              "\[RightDoubleBracket]"}], "<>", "\"\<.csv\>\""}], "]"}]}], ";",
+           "\[IndentingNewLine]", 
+          RowBox[{"tempTest", "=", 
+           RowBox[{"GatherBy", "[", 
+            RowBox[{
+             RowBox[{"SortBy", "[", 
+              RowBox[{"test", ",", 
+               RowBox[{
+                RowBox[{"#", "\[LeftDoubleBracket]", 
+                 RowBox[{"-", "13"}], "\[RightDoubleBracket]"}], "&"}]}], 
+              "]"}], ",", 
+             RowBox[{
+              RowBox[{"#", "\[LeftDoubleBracket]", 
+               RowBox[{"-", "13"}], "\[RightDoubleBracket]"}], "&"}]}], 
+            "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"x", "=", 
+           RowBox[{"tempTest", "\[LeftDoubleBracket]", 
+            RowBox[{"All", ",", "All", ",", 
+             RowBox[{"1", ";;", 
+              RowBox[{"-", "14"}]}]}], "\[RightDoubleBracket]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"y", "=", 
+           RowBox[{"tempTest", "\[LeftDoubleBracket]", 
+            RowBox[{"All", ",", "All", ",", 
+             RowBox[{
+              RowBox[{"-", "16"}], "+", 
+              RowBox[{"3", " ", "yType"}], "+", "errorType"}]}], 
+            "\[RightDoubleBracket]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"result", "=", 
+           RowBox[{"Import", "[", 
+            RowBox[{
+            "resultFile", "\[LeftDoubleBracket]", "l", 
+             "\[RightDoubleBracket]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"intercept", "=", 
+           RowBox[{"result", "\[LeftDoubleBracket]", 
+            RowBox[{"All", ",", "1"}], "\[RightDoubleBracket]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"slope", "=", 
+           RowBox[{"result", "\[LeftDoubleBracket]", 
+            RowBox[{"All", ",", 
+             RowBox[{"2", ";;", "All"}]}], "\[RightDoubleBracket]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"methodType", "\[Equal]", "2"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"xx", "=", 
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"tempTraining", "=", 
+                 RowBox[{"Select", "[", 
+                  RowBox[{"training", ",", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"#", "\[LeftDoubleBracket]", 
+                    RowBox[{"-", "13"}], "\[RightDoubleBracket]"}], 
+                    "\[Equal]", "i"}], "&"}]}], "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"xMin", "[", "i", "]"}], "=", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"RankedMin", "[", 
+                    RowBox[{"#", ",", 
+                    RowBox[{"\[LeftCeiling]", 
+                    FractionBox[
+                    RowBox[{"Length", "[", "tempTraining", "]"}], "20"], 
+                    "\[RightCeiling]"}]}], "]"}], "&"}], "/@", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"tempTraining", "\[LeftDoubleBracket]", 
+                    RowBox[{"All", ",", 
+                    RowBox[{"1", ";;", 
+                    RowBox[{"-", "14"}]}]}], "\[RightDoubleBracket]"}], 
+                    "\[Transpose]"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"xMax", "[", "i", "]"}], "=", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"RankedMax", "[", 
+                    RowBox[{"#", ",", 
+                    RowBox[{"\[LeftCeiling]", 
+                    FractionBox[
+                    RowBox[{"Length", "[", "tempTraining", "]"}], "20"], 
+                    "\[RightCeiling]"}]}], "]"}], "&"}], "/@", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"tempTraining", "\[LeftDoubleBracket]", 
+                    RowBox[{"All", ",", 
+                    RowBox[{"1", ";;", 
+                    RowBox[{"-", "14"}]}]}], "\[RightDoubleBracket]"}], 
+                    "\[Transpose]"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+                RowBox[{
+                 FractionBox[
+                  RowBox[{"q", "-", "3"}], "4"], " ", 
+                 RowBox[{"Map", "[", 
+                  RowBox[{
+                   RowBox[{
+                    FractionBox[
+                    RowBox[{"#", "-", 
+                    RowBox[{"xMin", "[", "i", "]"}]}], 
+                    RowBox[{
+                    RowBox[{"xMax", "[", "i", "]"}], "-", 
+                    RowBox[{"xMin", "[", "i", "]"}]}]], "&"}], ",", 
+                   RowBox[{
+                   "x", "\[LeftDoubleBracket]", "i", 
+                    "\[RightDoubleBracket]"}], ",", 
+                   RowBox[{"{", "1", "}"}]}], "]"}]}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"i", ",", "1", ",", "3"}], "}"}]}], "]"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"xMin", "[", "0", "]"}], "=", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"RankedMin", "[", 
+                 RowBox[{"#", ",", 
+                  RowBox[{"\[LeftCeiling]", 
+                   FractionBox[
+                    RowBox[{"Length", "[", "training", "]"}], "20"], 
+                   "\[RightCeiling]"}]}], "]"}], "&"}], "/@", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"training", "\[LeftDoubleBracket]", 
+                  RowBox[{"All", ",", 
+                   RowBox[{"1", ";;", 
+                    RowBox[{"-", "14"}]}]}], "\[RightDoubleBracket]"}], 
+                 "\[Transpose]"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"xMax", "[", "0", "]"}], "=", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"RankedMax", "[", 
+                 RowBox[{"#", ",", 
+                  RowBox[{"\[LeftCeiling]", 
+                   FractionBox[
+                    RowBox[{"Length", "[", "training", "]"}], "20"], 
+                   "\[RightCeiling]"}]}], "]"}], "&"}], "/@", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"training", "\[LeftDoubleBracket]", 
+                  RowBox[{"All", ",", 
+                   RowBox[{"1", ";;", 
+                    RowBox[{"-", "14"}]}]}], "\[RightDoubleBracket]"}], 
+                 "\[Transpose]"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"xx", "=", 
+              RowBox[{
+               FractionBox[
+                RowBox[{"q", "-", "3"}], "4"], " ", 
+               RowBox[{"Map", "[", 
+                RowBox[{
+                 RowBox[{
+                  FractionBox[
+                   RowBox[{"#", "-", 
+                    RowBox[{"xMin", "[", "0", "]"}]}], 
+                   RowBox[{
+                    RowBox[{"xMax", "[", "0", "]"}], "-", 
+                    RowBox[{"xMin", "[", "0", "]"}]}]], "&"}], ",", "x", ",", 
+                 RowBox[{"{", "2", "}"}]}], "]"}]}]}]}]}], "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"n", "=", 
+           RowBox[{"Length", "/@", "xx"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"bsb", "=", 
+           RowBox[{"Map", "[", 
+            RowBox[{"Flatten", ",", 
+             RowBox[{"Map", "[", 
+              RowBox[{"\[Phi]", ",", "xx", ",", 
+               RowBox[{"{", "3", "}"}]}], "]"}], ",", 
+             RowBox[{"{", "2", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"tempSlope", "=", 
+           RowBox[{"ArrayReshape", "[", 
+            RowBox[{"slope", ",", 
+             RowBox[{"{", 
+              RowBox[{"3", ",", "200", ",", "q"}], "}"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"zeroVector", "=", 
+           RowBox[{"ConstantArray", "[", 
+            RowBox[{"0", ",", "q"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"methodType", "\[Equal]", "4"}], ",", 
+            RowBox[{"Which", "[", 
+             RowBox[{
+              RowBox[{"yType", "\[Equal]", "1"}], ",", 
+              RowBox[{
+               RowBox[{"ttt1", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#", "\[NotEqual]", "0"}], "]"}], "&"}], ",", 
+                  RowBox[{"slope", "\[LeftDoubleBracket]", 
+                   RowBox[{"All", ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+               RowBox[{"TP1", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "0", ",", "1", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "0", ",", "0", ",", "1"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP1", "=", 
+                RowBox[{
+                 RowBox[{"Count", "[", 
+                  RowBox[{"slope", ",", 
+                   RowBox[{"ts_", "/;", 
+                    RowBox[{"ts", "\[NotEqual]", "0"}]}], ",", 
+                   RowBox[{"{", "2", "}"}]}], "]"}], "-", "TP1"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ttt2", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], "}"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TP2", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt2", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "0", ",", "0", ",", "1", ",", "0"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP2", "=", 
+                RowBox[{
+                 RowBox[{"Total", "[", 
+                  RowBox[{"ttt2", ",", "2"}], "]"}], "-", "TP2"}]}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"yType", "\[Equal]", "2"}], ",", 
+              RowBox[{
+               RowBox[{"ttt1", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#", "\[NotEqual]", "0"}], "]"}], "&"}], ",", 
+                  RowBox[{"slope", "\[LeftDoubleBracket]", 
+                   RowBox[{"All", ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+               RowBox[{"TP1", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "1", ",", "1", ",", "0", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "1", ",", "0", ",", "1"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP1", "=", 
+                RowBox[{
+                 RowBox[{"Count", "[", 
+                  RowBox[{"slope", ",", 
+                   RowBox[{"ts_", "/;", 
+                    RowBox[{"ts", "\[NotEqual]", "0"}]}], ",", 
+                   RowBox[{"{", "2", "}"}]}], "]"}], "-", "TP1"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ttt2", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], "}"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TP2", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt2", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP2", "=", 
+                RowBox[{
+                 RowBox[{"Total", "[", 
+                  RowBox[{"ttt2", ",", "2"}], "]"}], "-", "TP2"}]}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"yType", "\[Equal]", "3"}], ",", 
+              RowBox[{
+               RowBox[{"ttt1", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#", "\[NotEqual]", "0"}], "]"}], "&"}], ",", 
+                  RowBox[{"slope", "\[LeftDoubleBracket]", 
+                   RowBox[{"All", ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+               RowBox[{"TP1", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP1", "=", 
+                RowBox[{
+                 RowBox[{"Count", "[", 
+                  RowBox[{"slope", ",", 
+                   RowBox[{"ts_", "/;", 
+                    RowBox[{"ts", "\[NotEqual]", "0"}]}], ",", 
+                   RowBox[{"{", "2", "}"}]}], "]"}], "-", "TP1"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ttt2", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], "}"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TP2", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt2", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP2", "=", 
+                RowBox[{
+                 RowBox[{"Total", "[", 
+                  RowBox[{"ttt2", ",", "2"}], "]"}], "-", "TP2"}]}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"yType", "\[Equal]", "4"}], ",", 
+              RowBox[{
+               RowBox[{"ttt1", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#", "\[NotEqual]", "0"}], "]"}], "&"}], ",", 
+                  RowBox[{"slope", "\[LeftDoubleBracket]", 
+                   RowBox[{"All", ",", "selected"}], 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+               RowBox[{"TP1", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", "1", 
+                    ",", "0", ",", "0", ",", "1"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "0", ",", "1", ",", "0", ",", "0", 
+                    ",", "1", ",", "1", ",", "1"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "0", ",", "0", ",", "1", 
+                    ",", "1", ",", "0", ",", "1"}], "}"}]}], "}"}]}], "}"}], 
+                    ",", "2"}], "]"}], ",", "2"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"FP1", "=", 
+                RowBox[{
+                 RowBox[{"Count", "[", 
+                  RowBox[{"slope", ",", 
+                   RowBox[{"ts_", "/;", 
+                    RowBox[{"ts", "\[NotEqual]", "0"}]}], ",", 
+                   RowBox[{"{", "2", "}"}]}], "]"}], "-", "TP1"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ttt2", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], ",", "selected"}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}], ",", "selected"}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3"}], "}"}], ",", "selected"}], 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], "}"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TP2", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt2", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", 
+                    ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", 
+                    ",", "0", ",", "1", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "0", ",", "0", ",", "1", ",", "0", 
+                    ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}]}], "}"}], 
+                    ",", "2"}], "]"}], ",", "2"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"FP2", "=", 
+                RowBox[{
+                 RowBox[{"Total", "[", 
+                  RowBox[{"ttt2", ",", "2"}], "]"}], "-", "TP2"}]}]}]}], 
+             "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"Which", "[", 
+             RowBox[{
+              RowBox[{"yType", "\[Equal]", "1"}], ",", 
+              RowBox[{
+               RowBox[{"ttt1", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#", "\[NotEqual]", "zeroVector"}], "]"}], "&"}], 
+                  ",", 
+                  RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                   RowBox[{"All", ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+               RowBox[{"TP1", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "0", ",", "1", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "0", ",", "0", ",", "1"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP1", "=", 
+                RowBox[{
+                 RowBox[{"Count", "[", 
+                  RowBox[{"tempSlope", ",", 
+                   RowBox[{"ts_", "/;", 
+                    RowBox[{"ts", "\[NotEqual]", "zeroVector"}]}], ",", 
+                   RowBox[{"{", "2", "}"}]}], "]"}], "-", "TP1"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ttt2", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], "}"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TP2", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt2", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "0", ",", "0", ",", "1", ",", "0"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP2", "=", 
+                RowBox[{
+                 RowBox[{"Total", "[", 
+                  RowBox[{"ttt2", ",", "2"}], "]"}], "-", "TP2"}]}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"yType", "\[Equal]", "2"}], ",", 
+              RowBox[{
+               RowBox[{"ttt1", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#", "\[NotEqual]", "zeroVector"}], "]"}], "&"}], 
+                  ",", 
+                  RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                   RowBox[{"All", ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+               RowBox[{"TP1", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "1", ",", "1", ",", "0", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "1", ",", "0", ",", "1"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP1", "=", 
+                RowBox[{
+                 RowBox[{"Count", "[", 
+                  RowBox[{"tempSlope", ",", 
+                   RowBox[{"ts_", "/;", 
+                    RowBox[{"ts", "\[NotEqual]", "zeroVector"}]}], ",", 
+                   RowBox[{"{", "2", "}"}]}], "]"}], "-", "TP1"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ttt2", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], "}"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TP2", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt2", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP2", "=", 
+                RowBox[{
+                 RowBox[{"Total", "[", 
+                  RowBox[{"ttt2", ",", "2"}], "]"}], "-", "TP2"}]}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"yType", "\[Equal]", "3"}], ",", 
+              RowBox[{
+               RowBox[{"ttt1", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#", "\[NotEqual]", "zeroVector"}], "]"}], "&"}], 
+                  ",", 
+                  RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                   RowBox[{"All", ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+               RowBox[{"TP1", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP1", "=", 
+                RowBox[{
+                 RowBox[{"Count", "[", 
+                  RowBox[{"tempSlope", ",", 
+                   RowBox[{"ts_", "/;", 
+                    RowBox[{"ts", "\[NotEqual]", "zeroVector"}]}], ",", 
+                   RowBox[{"{", "2", "}"}]}], "]"}], "-", "TP1"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ttt2", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], "}"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TP2", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt2", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP2", "=", 
+                RowBox[{
+                 RowBox[{"Total", "[", 
+                  RowBox[{"ttt2", ",", "2"}], "]"}], "-", "TP2"}]}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"yType", "\[Equal]", "4"}], ",", 
+              RowBox[{
+               RowBox[{"ttt1", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#", "\[NotEqual]", "zeroVector"}], "]"}], "&"}], 
+                  ",", 
+                  RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                   RowBox[{"All", ",", "selected"}], 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+               RowBox[{"TP1", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", "1", 
+                    ",", "0", ",", "0", ",", "1"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "0", ",", "1", ",", "0", ",", "0", 
+                    ",", "1", ",", "1", ",", "1"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "0", ",", "0", ",", "1", 
+                    ",", "1", ",", "0", ",", "1"}], "}"}]}], "}"}]}], "}"}], 
+                    ",", "2"}], "]"}], ",", "2"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"FP1", "=", 
+                RowBox[{
+                 RowBox[{"Count", "[", 
+                  RowBox[{"tempSlope", ",", 
+                   RowBox[{"ts_", "/;", 
+                    RowBox[{"ts", "\[NotEqual]", "zeroVector"}]}], ",", 
+                   RowBox[{"{", "2", "}"}]}], "]"}], "-", "TP1"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ttt2", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], ",", "selected"}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}], ",", "selected"}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3"}], "}"}], ",", "selected"}], 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], "}"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TP2", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt2", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", 
+                    ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", 
+                    ",", "0", ",", "1", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "0", ",", "0", ",", "1", ",", "0", 
+                    ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}]}], "}"}], 
+                    ",", "2"}], "]"}], ",", "2"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"FP2", "=", 
+                RowBox[{
+                 RowBox[{"Total", "[", 
+                  RowBox[{"ttt2", ",", "2"}], "]"}], "-", "TP2"}]}]}]}], 
+             "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{"TP1", ",", "FP1", ",", "TP2", ",", "FP2", ",", 
+            RowBox[{"Mean", "[", 
+             RowBox[{"Mean", "[", 
+              SuperscriptBox[
+               RowBox[{"ParallelTable", "[", 
+                RowBox[{
+                 RowBox[{"Which", "[", 
+                  RowBox[{
+                   RowBox[{"methodType", "\[Equal]", "2"}], ",", 
+                   RowBox[{"Quiet", "[", 
+                    RowBox[{"NIntegrate", "[", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"\[Phi]", "[", 
+                    RowBox[{
+                    FractionBox[
+                    RowBox[{"q", "-", "3"}], "4"], " ", 
+                    FractionBox[
+                    RowBox[{"xxx", "-", 
+                    RowBox[{
+                    RowBox[{"xMin", "[", "i", "]"}], "\[LeftDoubleBracket]", 
+                    "j", "\[RightDoubleBracket]"}]}], 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"xMax", "[", "i", "]"}], "\[LeftDoubleBracket]", 
+                    "j", "\[RightDoubleBracket]"}], "-", 
+                    RowBox[{
+                    RowBox[{"xMin", "[", "i", "]"}], "\[LeftDoubleBracket]", 
+                    "j", "\[RightDoubleBracket]"}]}]]}], "]"}], ".", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{"i", ",", "j"}], "\[RightDoubleBracket]"}]}], "-", 
+                    RowBox[{"f", "[", 
+                    RowBox[{"yType", ",", "xxx", ",", "i", ",", "j"}], 
+                    "]"}]}], ")"}], "2"], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"xxx", ",", 
+                    RowBox[{"-", "1.9599639845400538`"}], ",", 
+                    "1.9599639845400538`"}], "}"}]}], "]"}], "]"}], ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{"methodType", "\[Equal]", "1"}], "||", 
+                    RowBox[{"methodType", "\[Equal]", "3"}]}], ",", 
+                   RowBox[{"Quiet", "[", 
+                    RowBox[{"NIntegrate", "[", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"\[Phi]", "[", 
+                    RowBox[{
+                    FractionBox[
+                    RowBox[{"q", "-", "3"}], "4"], " ", 
+                    FractionBox[
+                    RowBox[{"xxx", "-", 
+                    RowBox[{
+                    RowBox[{"xMin", "[", "0", "]"}], "\[LeftDoubleBracket]", 
+                    "j", "\[RightDoubleBracket]"}]}], 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"xMax", "[", "0", "]"}], "\[LeftDoubleBracket]", 
+                    "j", "\[RightDoubleBracket]"}], "-", 
+                    RowBox[{
+                    RowBox[{"xMin", "[", "0", "]"}], "\[LeftDoubleBracket]", 
+                    "j", "\[RightDoubleBracket]"}]}]]}], "]"}], ".", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{"i", ",", "j"}], "\[RightDoubleBracket]"}]}], "-", 
+                    RowBox[{"f", "[", 
+                    RowBox[{"yType", ",", "xxx", ",", "i", ",", "j"}], 
+                    "]"}]}], ")"}], "2"], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"xxx", ",", 
+                    RowBox[{"-", "1.959964"}], ",", "1.959964"}], "}"}]}], 
+                    "]"}], "]"}], ",", "\[IndentingNewLine]", "True", ",", 
+                   RowBox[{"Quiet", "[", 
+                    RowBox[{"NIntegrate", "[", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"xxx", " ", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{"i", ",", "j"}], "\[RightDoubleBracket]"}]}], "-", 
+                    RowBox[{"f", "[", 
+                    RowBox[{"yType", ",", "xxx", ",", "i", ",", "j"}], 
+                    "]"}]}], ")"}], "2"], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"xxx", ",", 
+                    RowBox[{"-", "1.959964"}], ",", "1.959964"}], "}"}]}], 
+                    "]"}], "]"}]}], "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", "1", ",", "3"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"j", ",", "1", ",", "200"}], "}"}]}], "]"}], 
+               FractionBox["1", "2"]], "]"}], "]"}], ",", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"methodType", "\[Equal]", "4"}], ",", 
+              RowBox[{"Total", "[", 
+               RowBox[{
+                RowBox[{
+                 FractionBox["1", "n"], " ", 
+                 RowBox[{"Abs", "[", 
+                  RowBox[{"y", "-", "intercept", "-", 
+                   RowBox[{"MapThread", "[", 
+                    RowBox[{"Dot", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"x", ",", "slope"}], "}"}]}], "]"}]}], "]"}]}], 
+                ",", "2"}], "]"}], ",", 
+              RowBox[{"Total", "[", 
+               RowBox[{
+                RowBox[{
+                 FractionBox["1", "n"], " ", 
+                 RowBox[{"Abs", "[", 
+                  RowBox[{"y", "-", "intercept", "-", 
+                   RowBox[{"MapThread", "[", 
+                    RowBox[{"Dot", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"bsb", ",", "slope"}], "}"}]}], "]"}]}], "]"}]}], 
+                ",", "2"}], "]"}]}], "]"}]}], "}"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"l", ",", "1", ",", 
+           RowBox[{"Length", "[", "resultFile", "]"}]}], "}"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"Export", "[", 
+       RowBox[{
+        RowBox[{"\"\<table/AM,\>\"", "<>", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"round", ",", "10", ",", "2"}], "]"}], "<>", 
+         "\"\<.txt\>\""}], ",", "tempTable"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"round", ",", "2", ",", "21"}], "}"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.828660593255229*^9, 3.828660699304674*^9}, {
+   3.8286645269129767`*^9, 3.828664589994718*^9}, {3.828664624545761*^9, 
+   3.8286646353949137`*^9}, {3.828671471745839*^9, 3.828671487664962*^9}, {
+   3.8286719883462524`*^9, 3.828672022384324*^9}, {3.828672387609416*^9, 
+   3.8286723990309258`*^9}, {3.8286725139314938`*^9, 3.828672518961205*^9}, 
+   3.828672563304741*^9, {3.828672622616131*^9, 3.828672658389258*^9}, {
+   3.8286727011022787`*^9, 3.828672724442696*^9}, {3.831696723589161*^9, 
+   3.831696732657496*^9}, {3.831703091470272*^9, 3.8317030962224383`*^9}, {
+   3.831703160959964*^9, 3.831703189018671*^9}, {3.8317032771137323`*^9, 
+   3.831703356761091*^9}, {3.8317035118120565`*^9, 3.8317035476737986`*^9}, {
+   3.831703627652207*^9, 3.8317036280574474`*^9}, {3.831703680814394*^9, 
+   3.831703683464246*^9}, {3.8317037137507772`*^9, 3.831703736665564*^9}, {
+   3.831703787960347*^9, 3.831703858024806*^9}, {3.831703888951684*^9, 
+   3.8317039555296135`*^9}, {3.8317045006962223`*^9, 
+   3.8317045132131166`*^9}, {3.831704554178404*^9, 3.8317045638544135`*^9}, {
+   3.831704651899818*^9, 3.8317046845564985`*^9}, {3.8317047909523544`*^9, 
+   3.831704858193117*^9}, {3.8317050513690023`*^9, 3.8317050926096616`*^9}, {
+   3.8317649285360804`*^9, 3.8317649321441655`*^9}, {3.831764979349184*^9, 
+   3.8317650223115225`*^9}, {3.831774351220081*^9, 3.8317743715146055`*^9}, {
+   3.8317744508590007`*^9, 3.831774453686959*^9}, 3.8317744861556463`*^9, {
+   3.8317745232809887`*^9, 3.8317745300035963`*^9}, {3.8317745823635607`*^9, 
+   3.8317745921644115`*^9}, 3.8317746458459396`*^9, {3.8317747032382727`*^9, 
+   3.831774709121991*^9}, {3.8317747516934366`*^9, 3.8317747540359116`*^9}, {
+   3.8336250797938423`*^9, 3.8336250849872665`*^9}, {3.8336251218365774`*^9, 
+   3.8336251233847275`*^9}},ExpressionUUID->"6033513b-555e-4d16-921f-\
+f379265af497"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "\:6e05\:9664\:5b9a\:4e49", "\:ff0c", "\:8bbe\:7f6e\:76ee\:5f55", "\:ff0c",
+     "\:7ec8\:6b62\:5185\:6838", "\:ff0c", "\:542f\:52a8\:5185\:6838"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"SetDirectory", "[", 
+     RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"CloseKernels", "[", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"LaunchKernels", "[", "12", "]"}], ";"}]}]}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"a6d8289e-6fce-41f8-9b18-fc0306977b5d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"q", "=", "6"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"abc", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"resultFile", "=", 
+       RowBox[{"FileNames", "[", 
+        RowBox[{
+         RowBox[{"__", "~~", "\"\<.csv\>\""}], ",", 
+         RowBox[{"\"\<accelerated failure time model/round=\>\"", "<>", 
+          RowBox[{"IntegerString", "[", 
+           RowBox[{"round", ",", "10", ",", "2"}], "]"}], "<>", 
+          "\"\</result for comparing\>\""}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"selected", "=", 
+       RowBox[{"ToExpression", "[", 
+        RowBox[{"Import", "[", 
+         RowBox[{"\"\<accelerated failure time model/round=\>\"", "<>", 
+          RowBox[{"IntegerString", "[", 
+           RowBox[{"round", ",", "10", ",", "2"}], "]"}], "<>", 
+          "\"\</data/selected.txt\>\""}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{"1", ",", "x_", ",", "i_", ",", "j_"}], "]"}], ":=", 
+       RowBox[{"Which", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"i", "\[Equal]", "1"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"3", " ", 
+            RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            FractionBox["6", 
+             RowBox[{"1", "+", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "2"}], " ", "x"}]]}]], "-", "3"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"3", " ", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{"-", 
+               FractionBox[
+                SuperscriptBox["x", "2"], "4"]}]]}], "-", 
+            SqrtBox["6"]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", "True", ",", "0"}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"i", "\[Equal]", "2"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            SuperscriptBox["x", "2"], "-", "1"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            FractionBox["6", 
+             RowBox[{"1", "+", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "2"}], " ", "x"}]]}]], "-", "3"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", "True", ",", "0"}], 
+          "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"i", "\[Equal]", "3"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            SuperscriptBox["x", "2"], "-", "1"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"3", " ", 
+            RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"-", "2"}], " ", "x"}], ",", "True", ",", "0"}], "]"}], 
+         ",", "\[IndentingNewLine]", "True", ",", "0"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{"2", ",", "x_", ",", "i_", ",", "j_"}], "]"}], ":=", 
+       RowBox[{"Which", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"i", "\[Equal]", "1"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            SuperscriptBox["x", "2"], "-", "1"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"3", " ", 
+            RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            FractionBox["6", 
+             RowBox[{"1", "+", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "2"}], " ", "x"}]]}]], "-", "3"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"3", " ", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{"-", 
+               FractionBox[
+                SuperscriptBox["x", "2"], "4"]}]]}], "-", 
+            SqrtBox["6"]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", "True", ",", "0"}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"i", "\[Equal]", "2"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["x", "2"], "-", "1"}], ")"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"6", " ", 
+            RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"3", " ", 
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{"-", 
+                 FractionBox[
+                  SuperscriptBox["x", "2"], "4"]}]]}], "-", 
+              SqrtBox["6"]}], ")"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "2", " ", "x"}], ",", "True", ",", "0"}], "]"}], 
+         ",", "\[IndentingNewLine]", 
+         RowBox[{"i", "\[Equal]", "3"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"-", "3"}], " ", 
+            RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              FractionBox["6", 
+               RowBox[{"1", "+", 
+                SuperscriptBox["\[ExponentialE]", 
+                 RowBox[{
+                  RowBox[{"-", "2"}], " ", "x"}]]}]], "-", "3"}], ")"}]}], 
+           ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"-", "2"}], " ", "x"}], ",", "True", ",", "0"}], "]"}], 
+         ",", "\[IndentingNewLine]", "True", ",", "0"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{"3", ",", "x_", ",", "i_", ",", "j_"}], "]"}], ":=", 
+       RowBox[{"Which", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"i", "\[Equal]", "1"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            SuperscriptBox["x", "2"], "-", "1"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"3", " ", 
+            RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            FractionBox["6", 
+             RowBox[{"1", "+", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "2"}], " ", "x"}]]}]], "-", "3"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"3", " ", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{"-", 
+               FractionBox[
+                SuperscriptBox["x", "2"], "4"]}]]}], "-", 
+            SqrtBox["6"]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", "True", ",", "0"}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"i", "\[Equal]", "2"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            SuperscriptBox["x", "2"], "-", "1"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"3", " ", 
+            RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            FractionBox["6", 
+             RowBox[{"1", "+", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "2"}], " ", "x"}]]}]], "-", "3"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"3", " ", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{"-", 
+               FractionBox[
+                SuperscriptBox["x", "2"], "4"]}]]}], "-", 
+            SqrtBox["6"]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", "True", ",", "0"}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"i", "\[Equal]", "3"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            SuperscriptBox["x", "2"], "-", "1"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"3", " ", 
+            RowBox[{"Sin", "[", "x", "]"}]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            FractionBox["6", 
+             RowBox[{"1", "+", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "2"}], " ", "x"}]]}]], "-", "3"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"3", " ", 
+             SuperscriptBox["\[ExponentialE]", 
+              RowBox[{"-", 
+               FractionBox[
+                SuperscriptBox["x", "2"], "4"]}]]}], "-", 
+            SqrtBox["6"]}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", "True", ",", "0"}], "]"}], ",", 
+         "\[IndentingNewLine]", "True", ",", "0"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{"4", ",", "x_", ",", "i_", ",", "j_"}], "]"}], ":=", 
+       RowBox[{"Which", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"i", "\[Equal]", "1"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "7", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "8", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "9", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"3", " ", "x"}], ",", "True", ",", "0"}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"i", "\[Equal]", "2"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "7", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"4", " ", "x"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "8", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "9", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"-", "3"}], " ", "x"}], ",", "True", ",", "0"}], "]"}], 
+         ",", "\[IndentingNewLine]", 
+         RowBox[{"i", "\[Equal]", "3"}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "2", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "3", 
+             "\[RightDoubleBracket]"}]}], ",", "x", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "4", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "5", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "6", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{
+            RowBox[{"-", "2"}], " ", "x"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "7", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"2", " ", "x"}], ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "8", 
+             "\[RightDoubleBracket]"}]}], ",", "0", ",", 
+           RowBox[{"j", "\[Equal]", 
+            RowBox[{
+            "selected", "\[LeftDoubleBracket]", "9", 
+             "\[RightDoubleBracket]"}]}], ",", 
+           RowBox[{"6", " ", "x"}], ",", "True", ",", "0"}], "]"}], ",", 
+         "\[IndentingNewLine]", "True", ",", "0"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\[Phi]", "[", "x_", "]"}], ":=", 
+       TagBox[GridBox[{
+          {"\[Piecewise]", GridBox[{
+             {
+              RowBox[{"Flatten", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "2"}], " ", "x"}], "+", 
+                  FractionBox["1", "6"]}], ",", 
+                 FractionBox["4", "6"], ",", 
+                 RowBox[{
+                  RowBox[{"2", " ", "x"}], "+", 
+                  FractionBox["1", "6"]}], ",", 
+                 RowBox[{"ConstantArray", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"q", "-", "3"}]}], "]"}]}], "}"}], "]"}], 
+              RowBox[{"x", "\[LessEqual]", "0"}]},
+             {
+              RowBox[{
+               RowBox[{
+                RowBox[{"BSplineBasis", "[", 
+                 RowBox[{"3", ",", 
+                  RowBox[{"x", "-", 
+                   FractionBox["#", "4"]}]}], "]"}], "&"}], "/@", 
+               RowBox[{"Range", "[", 
+                RowBox[{
+                 RowBox[{"-", "3"}], ",", 
+                 RowBox[{"q", "-", "4"}]}], "]"}]}], 
+              RowBox[{"0", "<", "x", "\[LessEqual]", 
+               FractionBox[
+                RowBox[{"q", "-", "3"}], "4"]}]},
+             {
+              RowBox[{"Flatten", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"ConstantArray", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"q", "-", "3"}]}], "]"}], ",", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "2"}], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"x", "-", 
+                    FractionBox[
+                    RowBox[{"q", "-", "3"}], "4"]}], ")"}]}], "+", 
+                  FractionBox["1", "6"]}], ",", 
+                 FractionBox["4", "6"], ",", 
+                 RowBox[{
+                  RowBox[{"2", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"x", "-", 
+                    FractionBox[
+                    RowBox[{"q", "-", "3"}], "4"]}], ")"}]}], "+", 
+                  FractionBox["1", "6"]}]}], "}"}], "]"}], 
+              RowBox[{
+               FractionBox[
+                RowBox[{"q", "-", "3"}], "4"], "<", "x"}]}
+            },
+            AllowedDimensions->{2, Automatic},
+            Editable->True,
+            
+            GridBoxAlignment->{
+             "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+              "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
+              "Rows" -> {{1.}}, "RowsIndexed" -> {}},
+            GridBoxSpacings->{"Columns" -> {
+                Offset[0.27999999999999997`], {
+                 Offset[0.84]}, 
+                Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+                Offset[0.2], {
+                 Offset[0.4]}, 
+                Offset[0.2]}, "RowsIndexed" -> {}},
+            Selectable->True]}
+         },
+         GridBoxAlignment->{
+          "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
+           "Rows" -> {{1.}}, "RowsIndexed" -> {}},
+         GridBoxSpacings->{"Columns" -> {
+             Offset[0.27999999999999997`], {
+              Offset[0.35]}, 
+             Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+             Offset[0.2], {
+              Offset[0.4]}, 
+             Offset[0.2]}, "RowsIndexed" -> {}}],
+        "Piecewise",
+        DeleteWithContents->True,
+        Editable->False,
+        SelectWithContents->True,
+        Selectable->False,
+        StripWrapperBoxes->True]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"tempTable", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"yType", "=", 
+           RowBox[{"ToExpression", "[", 
+            RowBox[{
+             RowBox[{"StringCases", "[", 
+              RowBox[{
+               RowBox[{
+               "resultFile", "\[LeftDoubleBracket]", "l", 
+                "\[RightDoubleBracket]"}], ",", 
+               RowBox[{
+                RowBox[{"\"\<yType=\>\"", "~~", "a_"}], "\[RuleDelayed]", 
+                "a"}]}], "]"}], "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"errorType", "=", 
+           RowBox[{"ToExpression", "[", 
+            RowBox[{
+             RowBox[{"StringCases", "[", 
+              RowBox[{
+               RowBox[{
+               "resultFile", "\[LeftDoubleBracket]", "l", 
+                "\[RightDoubleBracket]"}], ",", 
+               RowBox[{
+                RowBox[{"\"\<errorType=\>\"", "~~", "a_"}], "\[RuleDelayed]", 
+                "a"}]}], "]"}], "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"methodType", "=", 
+           RowBox[{"ToExpression", "[", 
+            RowBox[{
+             RowBox[{"StringCases", "[", 
+              RowBox[{
+               RowBox[{
+               "resultFile", "\[LeftDoubleBracket]", "l", 
+                "\[RightDoubleBracket]"}], ",", 
+               RowBox[{
+                RowBox[{"\"\<methodType=\>\"", "~~", "a_"}], "\[RuleDelayed]",
+                 "a"}]}], "]"}], "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"lossType", "=", 
+           RowBox[{"ToExpression", "[", 
+            RowBox[{
+             RowBox[{"StringCases", "[", 
+              RowBox[{
+               RowBox[{
+               "resultFile", "\[LeftDoubleBracket]", "l", 
+                "\[RightDoubleBracket]"}], ",", 
+               RowBox[{
+                RowBox[{"\"\<lossType=\>\"", "~~", "a_"}], "\[RuleDelayed]", 
+                "a"}]}], "]"}], "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"training", "=", 
+           RowBox[{"Import", "[", 
+            RowBox[{"\"\<accelerated failure time model/round=\>\"", "<>", 
+             RowBox[{"IntegerString", "[", 
+              RowBox[{"round", ",", "10", ",", "2"}], "]"}], "<>", 
+             "\"\</data/training,rho=0.\>\"", "<>", 
+             RowBox[{
+              RowBox[{"StringCases", "[", 
+               RowBox[{
+                RowBox[{
+                "resultFile", "\[LeftDoubleBracket]", "l", 
+                 "\[RightDoubleBracket]"}], ",", 
+                RowBox[{
+                 RowBox[{"\"\<rho=0.\>\"", "~~", "a_"}], "\[RuleDelayed]", 
+                 "a"}]}], "]"}], "\[LeftDoubleBracket]", "1", 
+              "\[RightDoubleBracket]"}], "<>", "\"\<.csv\>\""}], "]"}]}], ";",
+           "\[IndentingNewLine]", 
+          RowBox[{"test", "=", 
+           RowBox[{"Import", "[", 
+            RowBox[{"\"\<accelerated failure time model/round=\>\"", "<>", 
+             RowBox[{"IntegerString", "[", 
+              RowBox[{"round", ",", "10", ",", "2"}], "]"}], "<>", 
+             "\"\</data/test,rho=0.\>\"", "<>", 
+             RowBox[{
+              RowBox[{"StringCases", "[", 
+               RowBox[{
+                RowBox[{
+                "resultFile", "\[LeftDoubleBracket]", "l", 
+                 "\[RightDoubleBracket]"}], ",", 
+                RowBox[{
+                 RowBox[{"\"\<rho=0.\>\"", "~~", "a_"}], "\[RuleDelayed]", 
+                 "a"}]}], "]"}], "\[LeftDoubleBracket]", "1", 
+              "\[RightDoubleBracket]"}], "<>", "\"\<.csv\>\""}], "]"}]}], ";",
+           "\[IndentingNewLine]", 
+          RowBox[{"tempTest", "=", 
+           RowBox[{"GatherBy", "[", 
+            RowBox[{
+             RowBox[{"SortBy", "[", 
+              RowBox[{"test", ",", 
+               RowBox[{
+                RowBox[{"#", "\[LeftDoubleBracket]", 
+                 RowBox[{"-", "14"}], "\[RightDoubleBracket]"}], "&"}]}], 
+              "]"}], ",", 
+             RowBox[{
+              RowBox[{"#", "\[LeftDoubleBracket]", 
+               RowBox[{"-", "14"}], "\[RightDoubleBracket]"}], "&"}]}], 
+            "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"x", "=", 
+           RowBox[{"tempTest", "\[LeftDoubleBracket]", 
+            RowBox[{"All", ",", "All", ",", 
+             RowBox[{"1", ";;", 
+              RowBox[{"-", "15"}]}]}], "\[RightDoubleBracket]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"y", "=", 
+           RowBox[{"tempTest", "\[LeftDoubleBracket]", 
+            RowBox[{"All", ",", "All", ",", 
+             RowBox[{
+              RowBox[{"-", "17"}], "+", 
+              RowBox[{"3", " ", "yType"}], "+", "errorType"}]}], 
+            "\[RightDoubleBracket]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"\[ScriptCapitalD]", "=", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"SurvivalDistribution", "[", 
+              RowBox[{"EventData", "[", 
+               RowBox[{
+                RowBox[{
+                "y", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], 
+                ",", 
+                RowBox[{"tempTest", "\[LeftDoubleBracket]", 
+                 RowBox[{"i", ",", "All", ",", 
+                  RowBox[{"-", "1"}]}], "\[RightDoubleBracket]"}]}], "]"}], 
+              "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "1", ",", "3"}], "}"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"\[Omega]", "=", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"PDF", "[", 
+              RowBox[{
+               RowBox[{
+               "\[ScriptCapitalD]", "\[LeftDoubleBracket]", "i", 
+                "\[RightDoubleBracket]"}], ",", 
+               RowBox[{
+               "y", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}]}], 
+              "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "1", ",", "3"}], "}"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"result", "=", 
+           RowBox[{"Import", "[", 
+            RowBox[{
+            "resultFile", "\[LeftDoubleBracket]", "l", 
+             "\[RightDoubleBracket]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"intercept", "=", 
+           RowBox[{"result", "\[LeftDoubleBracket]", 
+            RowBox[{"All", ",", "1"}], "\[RightDoubleBracket]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"slope", "=", 
+           RowBox[{"result", "\[LeftDoubleBracket]", 
+            RowBox[{"All", ",", 
+             RowBox[{"2", ";;", "All"}]}], "\[RightDoubleBracket]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"methodType", "\[Equal]", "2"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"xx", "=", 
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"tempTraining", "=", 
+                 RowBox[{"Select", "[", 
+                  RowBox[{"training", ",", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"#", "\[LeftDoubleBracket]", 
+                    RowBox[{"-", "14"}], "\[RightDoubleBracket]"}], 
+                    "\[Equal]", "i"}], "&"}]}], "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"xMin", "[", "i", "]"}], "=", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"RankedMin", "[", 
+                    RowBox[{"#", ",", 
+                    RowBox[{"\[LeftCeiling]", 
+                    FractionBox[
+                    RowBox[{"Length", "[", "tempTraining", "]"}], "20"], 
+                    "\[RightCeiling]"}]}], "]"}], "&"}], "/@", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"tempTraining", "\[LeftDoubleBracket]", 
+                    RowBox[{"All", ",", 
+                    RowBox[{"1", ";;", 
+                    RowBox[{"-", "15"}]}]}], "\[RightDoubleBracket]"}], 
+                    "\[Transpose]"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"xMax", "[", "i", "]"}], "=", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"RankedMax", "[", 
+                    RowBox[{"#", ",", 
+                    RowBox[{"\[LeftCeiling]", 
+                    FractionBox[
+                    RowBox[{"Length", "[", "tempTraining", "]"}], "20"], 
+                    "\[RightCeiling]"}]}], "]"}], "&"}], "/@", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"tempTraining", "\[LeftDoubleBracket]", 
+                    RowBox[{"All", ",", 
+                    RowBox[{"1", ";;", 
+                    RowBox[{"-", "15"}]}]}], "\[RightDoubleBracket]"}], 
+                    "\[Transpose]"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+                RowBox[{
+                 FractionBox[
+                  RowBox[{"q", "-", "3"}], "4"], " ", 
+                 RowBox[{"Map", "[", 
+                  RowBox[{
+                   RowBox[{
+                    FractionBox[
+                    RowBox[{"#", "-", 
+                    RowBox[{"xMin", "[", "i", "]"}]}], 
+                    RowBox[{
+                    RowBox[{"xMax", "[", "i", "]"}], "-", 
+                    RowBox[{"xMin", "[", "i", "]"}]}]], "&"}], ",", 
+                   RowBox[{
+                   "x", "\[LeftDoubleBracket]", "i", 
+                    "\[RightDoubleBracket]"}], ",", 
+                   RowBox[{"{", "1", "}"}]}], "]"}]}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"i", ",", "1", ",", "3"}], "}"}]}], "]"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"xMin", "[", "0", "]"}], "=", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"RankedMin", "[", 
+                 RowBox[{"#", ",", 
+                  RowBox[{"\[LeftCeiling]", 
+                   FractionBox[
+                    RowBox[{"Length", "[", "training", "]"}], "20"], 
+                   "\[RightCeiling]"}]}], "]"}], "&"}], "/@", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"training", "\[LeftDoubleBracket]", 
+                  RowBox[{"All", ",", 
+                   RowBox[{"1", ";;", 
+                    RowBox[{"-", "15"}]}]}], "\[RightDoubleBracket]"}], 
+                 "\[Transpose]"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"xMax", "[", "0", "]"}], "=", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"RankedMax", "[", 
+                 RowBox[{"#", ",", 
+                  RowBox[{"\[LeftCeiling]", 
+                   FractionBox[
+                    RowBox[{"Length", "[", "training", "]"}], "20"], 
+                   "\[RightCeiling]"}]}], "]"}], "&"}], "/@", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"training", "\[LeftDoubleBracket]", 
+                  RowBox[{"All", ",", 
+                   RowBox[{"1", ";;", 
+                    RowBox[{"-", "15"}]}]}], "\[RightDoubleBracket]"}], 
+                 "\[Transpose]"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"xx", "=", 
+              RowBox[{
+               FractionBox[
+                RowBox[{"q", "-", "3"}], "4"], " ", 
+               RowBox[{"Map", "[", 
+                RowBox[{
+                 RowBox[{
+                  FractionBox[
+                   RowBox[{"#", "-", 
+                    RowBox[{"xMin", "[", "0", "]"}]}], 
+                   RowBox[{
+                    RowBox[{"xMax", "[", "0", "]"}], "-", 
+                    RowBox[{"xMin", "[", "0", "]"}]}]], "&"}], ",", "x", ",", 
+                 RowBox[{"{", "2", "}"}]}], "]"}]}]}]}]}], "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"n", "=", 
+           RowBox[{"Length", "/@", "xx"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"bsb", "=", 
+           RowBox[{"Map", "[", 
+            RowBox[{"Flatten", ",", 
+             RowBox[{"Map", "[", 
+              RowBox[{"\[Phi]", ",", "xx", ",", 
+               RowBox[{"{", "3", "}"}]}], "]"}], ",", 
+             RowBox[{"{", "2", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"tempSlope", "=", 
+           RowBox[{"ArrayReshape", "[", 
+            RowBox[{"slope", ",", 
+             RowBox[{"{", 
+              RowBox[{"3", ",", "200", ",", "q"}], "}"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"zeroVector", "=", 
+           RowBox[{"ConstantArray", "[", 
+            RowBox[{"0", ",", "q"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"methodType", "\[Equal]", "4"}], ",", 
+            RowBox[{"Which", "[", 
+             RowBox[{
+              RowBox[{"yType", "\[Equal]", "1"}], ",", 
+              RowBox[{
+               RowBox[{"ttt1", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#", "\[NotEqual]", "0"}], "]"}], "&"}], ",", 
+                  RowBox[{"slope", "\[LeftDoubleBracket]", 
+                   RowBox[{"All", ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+               RowBox[{"TP1", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "0", ",", "1", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "0", ",", "0", ",", "1"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP1", "=", 
+                RowBox[{
+                 RowBox[{"Count", "[", 
+                  RowBox[{"slope", ",", 
+                   RowBox[{"ts_", "/;", 
+                    RowBox[{"ts", "\[NotEqual]", "0"}]}], ",", 
+                   RowBox[{"{", "2", "}"}]}], "]"}], "-", "TP1"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ttt2", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], "}"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TP2", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt2", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "0", ",", "0", ",", "1", ",", "0"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP2", "=", 
+                RowBox[{
+                 RowBox[{"Total", "[", 
+                  RowBox[{"ttt2", ",", "2"}], "]"}], "-", "TP2"}]}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"yType", "\[Equal]", "2"}], ",", 
+              RowBox[{
+               RowBox[{"ttt1", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#", "\[NotEqual]", "0"}], "]"}], "&"}], ",", 
+                  RowBox[{"slope", "\[LeftDoubleBracket]", 
+                   RowBox[{"All", ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+               RowBox[{"TP1", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "1", ",", "1", ",", "0", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "1", ",", "0", ",", "1"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP1", "=", 
+                RowBox[{
+                 RowBox[{"Count", "[", 
+                  RowBox[{"slope", ",", 
+                   RowBox[{"ts_", "/;", 
+                    RowBox[{"ts", "\[NotEqual]", "0"}]}], ",", 
+                   RowBox[{"{", "2", "}"}]}], "]"}], "-", "TP1"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ttt2", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], "}"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TP2", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt2", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP2", "=", 
+                RowBox[{
+                 RowBox[{"Total", "[", 
+                  RowBox[{"ttt2", ",", "2"}], "]"}], "-", "TP2"}]}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"yType", "\[Equal]", "3"}], ",", 
+              RowBox[{
+               RowBox[{"ttt1", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#", "\[NotEqual]", "0"}], "]"}], "&"}], ",", 
+                  RowBox[{"slope", "\[LeftDoubleBracket]", 
+                   RowBox[{"All", ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+               RowBox[{"TP1", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP1", "=", 
+                RowBox[{
+                 RowBox[{"Count", "[", 
+                  RowBox[{"slope", ",", 
+                   RowBox[{"ts_", "/;", 
+                    RowBox[{"ts", "\[NotEqual]", "0"}]}], ",", 
+                   RowBox[{"{", "2", "}"}]}], "]"}], "-", "TP1"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ttt2", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], "}"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TP2", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt2", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP2", "=", 
+                RowBox[{
+                 RowBox[{"Total", "[", 
+                  RowBox[{"ttt2", ",", "2"}], "]"}], "-", "TP2"}]}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"yType", "\[Equal]", "4"}], ",", 
+              RowBox[{
+               RowBox[{"ttt1", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#", "\[NotEqual]", "0"}], "]"}], "&"}], ",", 
+                  RowBox[{"slope", "\[LeftDoubleBracket]", 
+                   RowBox[{"All", ",", "selected"}], 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+               RowBox[{"TP1", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", "1", 
+                    ",", "0", ",", "0", ",", "1"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "0", ",", "1", ",", "0", ",", "0", 
+                    ",", "1", ",", "1", ",", "1"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "0", ",", "0", ",", "1", 
+                    ",", "1", ",", "0", ",", "1"}], "}"}]}], "}"}]}], "}"}], 
+                    ",", "2"}], "]"}], ",", "2"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"FP1", "=", 
+                RowBox[{
+                 RowBox[{"Count", "[", 
+                  RowBox[{"slope", ",", 
+                   RowBox[{"ts_", "/;", 
+                    RowBox[{"ts", "\[NotEqual]", "0"}]}], ",", 
+                   RowBox[{"{", "2", "}"}]}], "]"}], "-", "TP1"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ttt2", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], ",", "selected"}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}], ",", "selected"}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3"}], "}"}], ",", "selected"}], 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], "}"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TP2", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt2", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", 
+                    ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", 
+                    ",", "0", ",", "1", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "0", ",", "0", ",", "1", ",", "0", 
+                    ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}]}], "}"}], 
+                    ",", "2"}], "]"}], ",", "2"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"FP2", "=", 
+                RowBox[{
+                 RowBox[{"Total", "[", 
+                  RowBox[{"ttt2", ",", "2"}], "]"}], "-", "TP2"}]}]}]}], 
+             "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"Which", "[", 
+             RowBox[{
+              RowBox[{"yType", "\[Equal]", "1"}], ",", 
+              RowBox[{
+               RowBox[{"ttt1", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#", "\[NotEqual]", "zeroVector"}], "]"}], "&"}], 
+                  ",", 
+                  RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                   RowBox[{"All", ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+               RowBox[{"TP1", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "0", ",", "1", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "0", ",", "0", ",", "1"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP1", "=", 
+                RowBox[{
+                 RowBox[{"Count", "[", 
+                  RowBox[{"tempSlope", ",", 
+                   RowBox[{"ts_", "/;", 
+                    RowBox[{"ts", "\[NotEqual]", "zeroVector"}]}], ",", 
+                   RowBox[{"{", "2", "}"}]}], "]"}], "-", "TP1"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ttt2", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], "}"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TP2", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt2", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "0", ",", "0", ",", "1", ",", "0"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP2", "=", 
+                RowBox[{
+                 RowBox[{"Total", "[", 
+                  RowBox[{"ttt2", ",", "2"}], "]"}], "-", "TP2"}]}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"yType", "\[Equal]", "2"}], ",", 
+              RowBox[{
+               RowBox[{"ttt1", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#", "\[NotEqual]", "zeroVector"}], "]"}], "&"}], 
+                  ",", 
+                  RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                   RowBox[{"All", ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+               RowBox[{"TP1", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "1", ",", "1", ",", "0", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "1", ",", "0", ",", "1"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP1", "=", 
+                RowBox[{
+                 RowBox[{"Count", "[", 
+                  RowBox[{"tempSlope", ",", 
+                   RowBox[{"ts_", "/;", 
+                    RowBox[{"ts", "\[NotEqual]", "zeroVector"}]}], ",", 
+                   RowBox[{"{", "2", "}"}]}], "]"}], "-", "TP1"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ttt2", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], "}"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TP2", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt2", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP2", "=", 
+                RowBox[{
+                 RowBox[{"Total", "[", 
+                  RowBox[{"ttt2", ",", "2"}], "]"}], "-", "TP2"}]}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"yType", "\[Equal]", "3"}], ",", 
+              RowBox[{
+               RowBox[{"ttt1", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#", "\[NotEqual]", "zeroVector"}], "]"}], "&"}], 
+                  ",", 
+                  RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                   RowBox[{"All", ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+               RowBox[{"TP1", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP1", "=", 
+                RowBox[{
+                 RowBox[{"Count", "[", 
+                  RowBox[{"tempSlope", ",", 
+                   RowBox[{"ts_", "/;", 
+                    RowBox[{"ts", "\[NotEqual]", "zeroVector"}]}], ",", 
+                   RowBox[{"{", "2", "}"}]}], "]"}], "-", "TP1"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ttt2", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3"}], "}"}], ",", 
+                    RowBox[{"selected", "\[LeftDoubleBracket]", 
+                    RowBox[{"1", ";;", "6"}], "\[RightDoubleBracket]"}]}], 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], "}"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TP2", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt2", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], 
+                    "}"}]}], "}"}]}], "}"}], ",", "2"}], "]"}], ",", "2"}], 
+                 "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"FP2", "=", 
+                RowBox[{
+                 RowBox[{"Total", "[", 
+                  RowBox[{"ttt2", ",", "2"}], "]"}], "-", "TP2"}]}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"yType", "\[Equal]", "4"}], ",", 
+              RowBox[{
+               RowBox[{"ttt1", "=", 
+                RowBox[{"Map", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Boole", "[", 
+                    RowBox[{"#", "\[NotEqual]", "zeroVector"}], "]"}], "&"}], 
+                  ",", 
+                  RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                   RowBox[{"All", ",", "selected"}], 
+                   "\[RightDoubleBracket]"}], ",", 
+                  RowBox[{"{", "2", "}"}]}], "]"}]}], ";", 
+               RowBox[{"TP1", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt1", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", "1", 
+                    ",", "0", ",", "0", ",", "1"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "0", ",", "1", ",", "0", ",", "0", 
+                    ",", "1", ",", "1", ",", "1"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "1", ",", "0", ",", "0", ",", "1", 
+                    ",", "1", ",", "0", ",", "1"}], "}"}]}], "}"}]}], "}"}], 
+                    ",", "2"}], "]"}], ",", "2"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"FP1", "=", 
+                RowBox[{
+                 RowBox[{"Count", "[", 
+                  RowBox[{"tempSlope", ",", 
+                   RowBox[{"ts_", "/;", 
+                    RowBox[{"ts", "\[NotEqual]", "zeroVector"}]}], ",", 
+                   RowBox[{"{", "2", "}"}]}], "]"}], "-", "TP1"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"ttt2", "=", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}], ",", "selected"}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}], ",", "selected"}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2"}], "]"}], "&"}], ",", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2", ",", "3"}], "}"}], ",", "selected"}], 
+                    "\[RightDoubleBracket]"}]}], "]"}]}], "}"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"TP2", "=", 
+                RowBox[{"Total", "[", 
+                 RowBox[{
+                  RowBox[{"MapThread", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Boole", "[", 
+                    RowBox[{"#1", "\[Equal]", "#2", "\[Equal]", "1"}], "]"}], 
+                    "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ttt2", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", 
+                    ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", 
+                    ",", "0", ",", "1", ",", "0"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "1", ",", "1", ",", "0", ",", "0", ",", "1", ",", "0", 
+                    ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}]}], "}"}], 
+                    ",", "2"}], "]"}], ",", "2"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"FP2", "=", 
+                RowBox[{
+                 RowBox[{"Total", "[", 
+                  RowBox[{"ttt2", ",", "2"}], "]"}], "-", "TP2"}]}]}]}], 
+             "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{"TP1", ",", "FP1", ",", "TP2", ",", "FP2", ",", 
+            RowBox[{"Mean", "[", 
+             RowBox[{"Mean", "[", 
+              SuperscriptBox[
+               RowBox[{"ParallelTable", "[", 
+                RowBox[{
+                 RowBox[{"Which", "[", 
+                  RowBox[{
+                   RowBox[{"methodType", "\[Equal]", "2"}], ",", 
+                   RowBox[{"Quiet", "[", 
+                    RowBox[{"NIntegrate", "[", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"\[Phi]", "[", 
+                    RowBox[{
+                    FractionBox[
+                    RowBox[{"q", "-", "3"}], "4"], " ", 
+                    FractionBox[
+                    RowBox[{"xxx", "-", 
+                    RowBox[{
+                    RowBox[{"xMin", "[", "i", "]"}], "\[LeftDoubleBracket]", 
+                    "j", "\[RightDoubleBracket]"}]}], 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"xMax", "[", "i", "]"}], "\[LeftDoubleBracket]", 
+                    "j", "\[RightDoubleBracket]"}], "-", 
+                    RowBox[{
+                    RowBox[{"xMin", "[", "i", "]"}], "\[LeftDoubleBracket]", 
+                    "j", "\[RightDoubleBracket]"}]}]]}], "]"}], ".", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{"i", ",", "j"}], "\[RightDoubleBracket]"}]}], "-", 
+                    RowBox[{"f", "[", 
+                    RowBox[{"yType", ",", "xxx", ",", "i", ",", "j"}], 
+                    "]"}]}], ")"}], "2"], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"xxx", ",", 
+                    RowBox[{"-", "1.9599639845400538`"}], ",", 
+                    "1.9599639845400538`"}], "}"}]}], "]"}], "]"}], ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{"methodType", "\[Equal]", "1"}], "||", 
+                    RowBox[{"methodType", "\[Equal]", "3"}]}], ",", 
+                   RowBox[{"Quiet", "[", 
+                    RowBox[{"NIntegrate", "[", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"\[Phi]", "[", 
+                    RowBox[{
+                    FractionBox[
+                    RowBox[{"q", "-", "3"}], "4"], " ", 
+                    FractionBox[
+                    RowBox[{"xxx", "-", 
+                    RowBox[{
+                    RowBox[{"xMin", "[", "0", "]"}], "\[LeftDoubleBracket]", 
+                    "j", "\[RightDoubleBracket]"}]}], 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"xMax", "[", "0", "]"}], "\[LeftDoubleBracket]", 
+                    "j", "\[RightDoubleBracket]"}], "-", 
+                    RowBox[{
+                    RowBox[{"xMin", "[", "0", "]"}], "\[LeftDoubleBracket]", 
+                    "j", "\[RightDoubleBracket]"}]}]]}], "]"}], ".", 
+                    RowBox[{"tempSlope", "\[LeftDoubleBracket]", 
+                    RowBox[{"i", ",", "j"}], "\[RightDoubleBracket]"}]}], "-", 
+                    RowBox[{"f", "[", 
+                    RowBox[{"yType", ",", "xxx", ",", "i", ",", "j"}], 
+                    "]"}]}], ")"}], "2"], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"xxx", ",", 
+                    RowBox[{"-", "1.959964"}], ",", "1.959964"}], "}"}]}], 
+                    "]"}], "]"}], ",", "\[IndentingNewLine]", "True", ",", 
+                   RowBox[{"Quiet", "[", 
+                    RowBox[{"NIntegrate", "[", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"xxx", " ", 
+                    RowBox[{"slope", "\[LeftDoubleBracket]", 
+                    RowBox[{"i", ",", "j"}], "\[RightDoubleBracket]"}]}], "-", 
+                    RowBox[{"f", "[", 
+                    RowBox[{"yType", ",", "xxx", ",", "i", ",", "j"}], 
+                    "]"}]}], ")"}], "2"], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"xxx", ",", 
+                    RowBox[{"-", "1.959964"}], ",", "1.959964"}], "}"}]}], 
+                    "]"}], "]"}]}], "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", "1", ",", "3"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"j", ",", "1", ",", "200"}], "}"}]}], "]"}], 
+               FractionBox["1", "2"]], "]"}], "]"}], ",", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"methodType", "\[Equal]", "4"}], ",", 
+              RowBox[{"Total", "[", 
+               RowBox[{
+                RowBox[{"\[Omega]", " ", 
+                 RowBox[{"Abs", "[", 
+                  RowBox[{"y", "-", "intercept", "-", 
+                   RowBox[{"MapThread", "[", 
+                    RowBox[{"Dot", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"x", ",", "slope"}], "}"}]}], "]"}]}], "]"}]}], 
+                ",", "2"}], "]"}], ",", 
+              RowBox[{"Total", "[", 
+               RowBox[{
+                RowBox[{"\[Omega]", " ", 
+                 RowBox[{"Abs", "[", 
+                  RowBox[{"y", "-", "intercept", "-", 
+                   RowBox[{"MapThread", "[", 
+                    RowBox[{"Dot", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"bsb", ",", "slope"}], "}"}]}], "]"}]}], "]"}]}], 
+                ",", "2"}], "]"}]}], "]"}]}], "}"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"l", ",", "1", ",", 
+           RowBox[{"Length", "[", "resultFile", "]"}]}], "}"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"Export", "[", 
+       RowBox[{
+        RowBox[{"\"\<table/AFT,\>\"", "<>", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"round", ",", "10", ",", "2"}], "]"}], "<>", 
+         "\"\<.txt\>\""}], ",", "tempTable"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"round", ",", "2", ",", "21"}], "}"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.828660593255229*^9, 3.828660699304674*^9}, {
+   3.8286645269129767`*^9, 3.828664589994718*^9}, {3.828664624545761*^9, 
+   3.8286646353949137`*^9}, {3.828671471745839*^9, 3.828671487664962*^9}, {
+   3.8286719883462524`*^9, 3.828672022384324*^9}, {3.828672387609416*^9, 
+   3.8286723990309258`*^9}, {3.8286725139314938`*^9, 3.828672518961205*^9}, 
+   3.828672563304741*^9, {3.828672622616131*^9, 3.828672658389258*^9}, {
+   3.8286727011022787`*^9, 3.828672724442696*^9}, {3.831696723589161*^9, 
+   3.831696732657496*^9}, {3.831703091470272*^9, 3.8317030962224383`*^9}, {
+   3.831703160959964*^9, 3.831703189018671*^9}, {3.8317032771137323`*^9, 
+   3.831703356761091*^9}, {3.8317035118120565`*^9, 3.8317035476737986`*^9}, {
+   3.831703627652207*^9, 3.8317036280574474`*^9}, {3.831703680814394*^9, 
+   3.831703683464246*^9}, {3.8317037137507772`*^9, 3.831703736665564*^9}, {
+   3.831703787960347*^9, 3.831703858024806*^9}, {3.831703888951684*^9, 
+   3.8317039555296135`*^9}, {3.8317045006962223`*^9, 
+   3.8317045132131166`*^9}, {3.831704554178404*^9, 3.8317045638544135`*^9}, {
+   3.831704651899818*^9, 3.8317046845564985`*^9}, {3.8317047909523544`*^9, 
+   3.831704858193117*^9}, {3.8317050513690023`*^9, 3.8317050926096616`*^9}, {
+   3.8317649285360804`*^9, 3.8317649321441655`*^9}, {3.831764979349184*^9, 
+   3.8317650223115225`*^9}, {3.831774351220081*^9, 3.8317743715146055`*^9}, {
+   3.8317744508590007`*^9, 3.831774453686959*^9}, 3.8317744861556463`*^9, {
+   3.8317745232809887`*^9, 3.8317745300035963`*^9}, {3.8317745823635607`*^9, 
+   3.8317745921644115`*^9}, 3.8317746458459396`*^9, {3.8317747032382727`*^9, 
+   3.831774709121991*^9}, {3.8317747516934366`*^9, 3.8317747540359116`*^9}, {
+   3.831791735259778*^9, 3.8317917610004563`*^9}, {3.8317918345154715`*^9, 
+   3.831791840677429*^9}, {3.831792405957588*^9, 3.83179240623672*^9}, {
+   3.831792453675787*^9, 3.831792516401733*^9}, {3.8317925813226695`*^9, 
+   3.8317925909839225`*^9}, {3.8336250919601707`*^9, 
+   3.833625109950282*^9}},ExpressionUUID->"230eb60e-088f-44d3-8dab-\
+8bb0d75b6598"]
+},
+WindowSize->{1904, 981},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (2020\:5e747\:670815\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ea2ca377-7e11-47f5-9c6a-b962bea01762"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 726, 19, 189, "Input",ExpressionUUID->"da8de27f-05c9-40d8-97b0-4bd89e6bb6b0"],
+Cell[1287, 41, 89835, 2041, 4281, "Input",ExpressionUUID->"6033513b-555e-4d16-921f-f379265af497"],
+Cell[91125, 2084, 726, 19, 189, "Input",ExpressionUUID->"a6d8289e-6fce-41f8-9b18-fc0306977b5d"],
+Cell[91854, 2105, 91278, 2072, 4348, "Input",ExpressionUUID->"230eb60e-088f-44d3-8dab-8bb0d75b6598"]
+}
+]
+*)
+
